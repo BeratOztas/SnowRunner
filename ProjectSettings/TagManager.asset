@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FinishLine
+  - Snow
+  - Collision
+  - SnowBall
+  - Heater
+  - Barrel
+  - ChangeParticle
+  - CollectBall
   layers:
   - Default
   - TransparentFX
@@ -11,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - FinishLine
+  - SnowBall
   - 
   - 
   - 
