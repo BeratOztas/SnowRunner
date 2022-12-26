@@ -35,7 +35,6 @@ public class PlayerManagement: MonoSingleton<PlayerManagement>
             canRun = false;
         }
         Debug.Log("Status: " + status);
-        //Debug.Log("Scale: " + player.transform.localScale.x);
     }
 
     public void ChangeScale(float scaleAmount) {
