@@ -30,6 +30,7 @@ public class PlayerManagement: MonoSingleton<PlayerManagement>
         if (Input.GetMouseButtonDown(0) && canRun)
         {
             playerRunner.StartToRun();
+            SnowBall.GetComponent<Animator>().enabled = true;
             isStarted = true;
             canRun = false;
         }
@@ -140,11 +141,14 @@ public class PlayerManagement: MonoSingleton<PlayerManagement>
     {
         playerRunner.SetRunning(false);
         playerRunner.SetShoot(false);
+        SnowBall.GetComponent<Animator>().enabled = false;
         UIManager.Instance.RestartButtonUI();
     }
     public void StartToNextLvl()
     {
         playerRunner.SetRunning(false);
+        playerRunner.SetShoot(false);
+        SnowBall.GetComponent<Animator>().enabled = false;
         canRun = false;
         UIManager.Instance.NextLvlUI();
     }
@@ -158,10 +162,20 @@ public class PlayerManagement: MonoSingleton<PlayerManagement>
 
     public void CharacterReset()
     {
+        //change status
+        status = 0;
         isStarted = false;
+        SnowBall.SetActive(true);
+        lowSnowMan.SetActive(false);
+        averageSnowMan.SetActive(false);
+        highSnowMan.SetActive(false);
         transform.position = new Vector3(0f, 0.125f, 0f);
         player.transform.localScale = new Vector3(1f, 1f, 1f);
         PlayerManagement.Instance.isFinished = false;
         UIManager.Instance.TapToPlay();
+    }
+
+    public int GetStatus() {
+        return status;
     }
 }

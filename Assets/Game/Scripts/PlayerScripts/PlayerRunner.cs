@@ -11,11 +11,11 @@ public class PlayerRunner: MonoBehaviour
     [SerializeField] private bool enabled = true;
     [SerializeField] private bool running = false;
 
-   
     private bool isTouched;
     private bool canShoot;
     [SerializeField]
     private Transform firePosition;
+    [SerializeField] private float throwAmount=0.1f;
     void Update()
     {
         if (running) { 
@@ -25,7 +25,7 @@ public class PlayerRunner: MonoBehaviour
         
         if (Input.GetMouseButtonDown(0)&&canShoot) {
             isTouched = true;
-            PlayerManagement.Instance.ChangeScale(-0.1f);        
+            PlayerManagement.Instance.ChangeScale(-throwAmount);        
         }
     }
 

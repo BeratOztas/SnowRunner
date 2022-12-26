@@ -15,6 +15,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     [SerializeField] private TMP_Text currentLvl;
     [SerializeField] private TMP_Text nextLvlButtonText;
+    [SerializeField] private TMP_Text StatusText;
 
     public bool isPaused;
     private void Start()
@@ -34,8 +35,8 @@ public class UIManager : MonoSingleton<UIManager>
         {
             nextLvlUI.SetActive(false);
             isPaused = false;
-            // ResMultiplierButton();
 
+           
             LevelManager.Instance.LevelUp();
             LevelText();
             PlayerManagement.Instance.CharacterReset();
@@ -68,7 +69,7 @@ public class UIManager : MonoSingleton<UIManager>
             nextLvlUI.SetActive(true);
             isPaused = true;
             NextLvl();
-
+            SetStatusText();
         }
 
     }//NextLvlUI
@@ -88,6 +89,16 @@ public class UIManager : MonoSingleton<UIManager>
             tapToPlayUI.SetActive(true);
             isPaused = true;
         }
+    }
+
+    void SetStatusText() {
+        int status = PlayerManagement.Instance.GetStatus();
+        if (status == 0 || status == 1)
+            StatusText.text = "low";
+        else if (status == 2)
+            StatusText.text = "average";
+        else
+            StatusText.text = "high";
     }
     void NextLvl()
     {

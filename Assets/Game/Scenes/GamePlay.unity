@@ -196,6 +196,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6825568252334493994, guid: 60b6ba9d39826c44aa2971315afab410, type: 3}
   m_PrefabInstance: {fileID: 1280260544}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &329135862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4286199685144455234, guid: 60b6ba9d39826c44aa2971315afab410, type: 3}
+  m_PrefabInstance: {fileID: 1280260544}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &691421752
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +257,7 @@ MonoBehaviour:
   nextLevelButton: {fileID: 204156740}
   currentLvl: {fileID: 1992296967}
   nextLvlButtonText: {fileID: 1276858944}
+  StatusText: {fileID: 329135862}
   isPaused: 0
 --- !u!1 &705507993
 GameObject:
@@ -604,6 +616,7 @@ MonoBehaviour:
   levelPrefabs:
   - {fileID: 571413196429118387, guid: 8a3abb9578173034b8d9bb305c05dda2, type: 3}
   - {fileID: 766122139294283999, guid: dc6221f348559fb4a9b73bf9df33cb24, type: 3}
+  - {fileID: 766122139294283999, guid: 1277682aa9ebf6548965b63b61e197aa, type: 3}
   levelIndex: 0
   forceLevel: 0
 --- !u!1 &1113214281
@@ -1157,6 +1170,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -526927882, guid: 40a0a2bc958c9004fa373b2220609bde, type: 3}
+    - target: {fileID: 7523208371651508177, guid: 60b6ba9d39826c44aa2971315afab410, type: 3}
+      propertyPath: m_Name
+      value: StatusLvlText
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60b6ba9d39826c44aa2971315afab410, type: 3}
 --- !u!1001 &1319380096
@@ -1330,7 +1347,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 910835382}
   m_RootOrder: 0
@@ -1343,7 +1360,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677505590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c2337717823130a4c83e0298a9262cad, type: 2}
   m_CullingMode: 0

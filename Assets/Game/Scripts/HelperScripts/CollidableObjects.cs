@@ -7,11 +7,14 @@ using TMPro;
 public class CollidableObjects: MonoBehaviour
 {
 
-   public ObjectType objectType;
-   private bool collidedPlayer;
+    public ObjectType objectType;
+    private bool collidedPlayer;
     [SerializeField] private TextMeshProUGUI obstacleText;
     [SerializeField] private int Obstacle_Count;
-   public enum ObjectType{
+    [SerializeField] private float collectSnowAmount = 0.1f;
+    [SerializeField] private float heaterDecreaseAmount = 0.2f;
+    [SerializeField] private float obstacleDecreaseAmount = 0.1f;
+    public enum ObjectType{
         Snow,
         Heater,
         Obstacle,
@@ -29,12 +32,12 @@ public class CollidableObjects: MonoBehaviour
         if (objectType == ObjectType.Heater && !collidedPlayer) {
             
             //particle ObjectPool
-            PlayerManagement.Instance.ChangeScale(-0.1f);
+            PlayerManagement.Instance.ChangeScale(-heaterDecreaseAmount);
             collidedPlayer = true;
         }
         if (objectType == ObjectType.Obstacle && !collidedPlayer) {
             //particle ObjectPool
-            PlayerManagement.Instance.ChangeScale(-0.1f);
+            PlayerManagement.Instance.ChangeScale(-obstacleDecreaseAmount);
             collidedPlayer = true;
         }
         
@@ -49,7 +52,7 @@ public class CollidableObjects: MonoBehaviour
             particle.SetActive(true);
             particle.GetComponent<ParticleSystem>().Play();
             gameObject.SetActive(false);
-            PlayerManagement.Instance.ChangeScale(0.1f);
+            PlayerManagement.Instance.ChangeScale(collectSnowAmount);
         }
         if (objectType == ObjectType.Obstacle)
         {
@@ -64,7 +67,7 @@ public class CollidableObjects: MonoBehaviour
             }
         }
         if (objectType == ObjectType.FinishLine) {
-            Invoke("FinishedAction", 1.75f);
+            Invoke("FinishedAction", 1f);
         }
     }
 
